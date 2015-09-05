@@ -50,7 +50,9 @@ app.controller('MainCtrl', function ($rootScope, $http, $scope, $route) {
   var game = new Game();
   $rootScope.game = game;
 
-  $http.get('/data/matches.json').
+  var BASE_URL = location.href.indexOf('firebase') == -1? '' : 'https://ping-pong-rankings.firebaseio.com'
+
+  $http.get(BASE_URL + '/data/matches.json').
   then(function (response) {
     if (response.status == 200) {
       var matches = response.data;
