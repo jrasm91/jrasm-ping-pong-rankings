@@ -1,0 +1,71 @@
+<section>
+  <div class="container">
+    <h1 class="text-center">Player: {{ player.name }}</h1>
+    <div class="row">
+      <div class="col-sm-4">
+        <h3 class="text-center">History</h3>
+        <table class="table table-striped" >
+          <tbody>
+            <tr class="row">
+              <td class="col-sm-1"><strong></strong></td>
+              <td class="col-sm-5"><strong>Opponent</strong></td>
+              <td class="col-sm-4"><strong>Record</strong></td>
+              <td class="col-sm-2"><strong>Current</strong></td>
+            </tr>
+            <tr class="row match-data" ng-repeat="history in player.histories">
+
+              <td class="col-sm-1">{{ $index + 1 }}</td>
+              <td class="col-sm-3">
+                <span> {{ history.name }} </span>
+              </td> 
+              <td class="col-sm-4">
+                <span> {{ history.wins }} - {{ history.losses }}</span>
+              </td>
+              <td class="col-sm-4">
+              <span class="match-won" ng-show="history.currentStreak > 0">W{{ history.currentStreak }}</span>
+              <span class="match-lost" ng-show="history.currentStreak < 0">L{{ -history.currentStreak }}</span>
+              <span ng-show="history.currentStreak == 0">N/A</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        </table>
+      </div>
+      <div class="col-sm-8">
+        <!-- <h3 class="text-center">Ranking Over Time</h3> -->
+        <!-- <div class="row ranking-graph"></div> -->
+        <h3 class="text-center">Matches</h3>
+        <table class="table table-striped">
+          <tbody>
+            <tr class="row">
+              <td class="col-sm-1"></td>
+              <td class="col-sm-2"><strong>Date</strong></td>
+              <td class="col-sm-2"><strong>Challenger</strong></td>
+              <td class="col-sm-1"><strong></strong></td>
+              <td class="col-sm-2"><strong>Opponent</strong></td>
+              <td class="col-sm-1"><strong>Sets</strong></td>
+              <td class="col-sm-3"><strong>Scores</strong></td>
+            </tr>
+            <tr class="row match-data" ng-repeat="match in playerMatches | orderBy:'date':true">
+              <td class="col-sm-1">{{ $index + 1 }}</td>
+              <td class="col-sm-2">{{ match.dateString }}</td>
+              <td class="col-sm-2">
+                <span> {{ match.challenger.name }} </span>
+                <span ng-class="{ 'match-won': match.winner == match.challenger, 'match-lost': match.loser == match.challenger }"><span class="match-won" ng-show="match.winner == match.challenger">+</span>{{ match.challenger.pointsWon }} </span>
+              </td> 
+              <td class="col-sm-1"> vs </td>
+              <td class="col-sm-2">
+                <span> {{ match.opponent.name }} </span>
+                <span ng-class="{ 'match-won': match.winner == match.opponent, 'match-lost': match.loser == match.opponent }"><span class="match-won" ng-show="match.winner == match.opponent">+</span>{{ match.opponent.pointsWon }} </span>
+              </td>
+              <td class="col-sm-1"> {{ match.challenger.setsWon }} - {{ match.opponent.setsWon }} </td>
+              <td class="col-sm-3">{{ match.scoresString }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <p class="last"></p>
+  <!-- // <script src="js/ranking-graph.js"></script> -->
+</section>
