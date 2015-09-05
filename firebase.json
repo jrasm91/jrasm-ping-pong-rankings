@@ -1,0 +1,9 @@
+{
+  "firebase": "ping-pong-rankings",
+  "public": ".",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}
