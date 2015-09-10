@@ -4,6 +4,7 @@
 html, body {
   font-family: 'Montserrat', sans-serif;
   height:100%;
+  background-color: #10132B
 }
 
 .axis path,
@@ -24,14 +25,15 @@ html, body {
 }
 
 .whole-header {
-  background-color: #10132B !important;
-  height: 12.5%;
+  /*background-color: #10132B !important;*/
+  /*height: 100px;*/
+  min-height: 10%;
 }
 
 .navbar-collapse {
   background-color: #10132B;
 }
-
+ 
 .whole-content {
   padding: 25px;
   background-color: white;
@@ -41,8 +43,8 @@ html, body {
 .whole-footer {
   padding: 25px;
   color: #428bca;
-  background-color: #10132B;
-  height: 12.5%;
+  /*background-color: #10132B;*/
+  min-height: 10%;
 }
 
 .flip-image {
