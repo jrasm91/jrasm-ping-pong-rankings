@@ -39,7 +39,6 @@ function findRankingChanges(ranking1, ranking2, upset) {
   return upset ? upset : expected;
 };
 
-
 /****** PLAYER ******/
 function Player(name) {
   this.name = name;
@@ -129,25 +128,28 @@ Game.prototype = {
       }
     });
   },
+  updatePlayerOrder: function () {
+    this.setPreviousSeed();
+    this.sortPlayers();
+    this.setCurrentSeed();
+  },
   addPlayer: function (name) {
     var player = new Player(name);
     this.players.push(player);
     return player;
   },
   addMatch: function (params) {
+    // find/add players from match
     params.challengerRanking = this.upsertPlayer(params.challenger).ranking;
     params.opponentRanking = this.upsertPlayer(params.opponent).ranking;
     var match = new Match(params);
     this.matches.push(match);
 
-    var winner = this.findPlayerByName(match.winner.name);
-    var loser = this.findPlayerByName(match.loser.name);
-    winner.addWin(match.winner.pointsWon);
-    loser.addLoss(-match.loser.pointsWon);
+    // update player points
+    this.findPlayerByName(match.winner.name).addWin(match.winner.pointsWon);
+    this.findPlayerByName(match.loser.name).addLoss(-match.loser.pointsWon);
 
-    this.setPreviousSeed();
-    this.sortPlayers();
-    this.setCurrentSeed();
+    this.updatePlayerOrder();
   },
   upsertPlayer: function (name) {
     var player = this.findPlayerByName(name);
@@ -209,11 +211,6 @@ Game.prototype = {
     var history = [];
     for (var name in playerHistories) {
       var nextHistory = playerHistories[name];
-      // if (nextHistory.currentStreak == 0) {
-      //   nextHistory.currentStreak = '-';
-      // } else {
-      //   nextHistory.currentStreak = nextHistory.currentStreak > 0 ? 'W' + nextHistory.currentStreak : 'L' + Math.abs(nextHistory.currentStreak);
-      // }
       history.push(nextHistory)
     }
     return history;

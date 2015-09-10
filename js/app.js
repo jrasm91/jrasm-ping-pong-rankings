@@ -8,29 +8,29 @@
  *
  * Main module of the application.
  */
-var app = angular.module('ppPollsApp', ['ngRoute']);
+ var app = angular.module('ppPollsApp', ['ngRoute']);
 
-app.config(function ($routeProvider) {
+ app.config(function ($routeProvider) {
   $routeProvider
-    .when('/home', {
-      templateUrl: 'partials/home.html',
-      activeTab: 'HOME'
-    })
-    .when('/polls', {
-      controller: 'PollsCtrl',
-      controllerAs: 'pollsCtrl',
-      templateUrl: 'partials/polls.html',
-      activeTab: 'POLLS'
-    })
-    .when('/player/:name', {
-      controller: 'PlayerCtrl',
-      controllerAs: 'playerCtrl',
-      templateUrl: 'partials/player.html',
-      activeTab: 'PLAYER'
-    })
-    .otherwise({
-      redirectTo: '/home'
-    });
+  .when('/home', {
+    templateUrl: 'partials/home.html',
+    activeTab: 'HOME'
+  })
+  .when('/polls', {
+    controller: 'PollsCtrl',
+    controllerAs: 'pollsCtrl',
+    templateUrl: 'partials/polls.html',
+    activeTab: 'POLLS'
+  })
+  .when('/player/:name', {
+    controller: 'PlayerCtrl',
+    controllerAs: 'playerCtrl',
+    templateUrl: 'partials/player.html',
+    activeTab: 'PLAYER'
+  })
+  .otherwise({
+    redirectTo: '/home'
+  });
 });
 
 /**
@@ -40,7 +40,7 @@ app.config(function ($routeProvider) {
  * # MainCtrl
  * Controller of the ppPollsApp
  */
-app.controller('MainCtrl', function ($rootScope, $http, $scope, $route) {
+ app.controller('MainCtrl', function ($rootScope, $http, $scope, $route) {
   this.activeTab = 1;
 
   this.isActive = function (tab) {
@@ -50,17 +50,17 @@ app.controller('MainCtrl', function ($rootScope, $http, $scope, $route) {
   var game = new Game();
   $rootScope.game = game;
 
-  var BASE_URL = location.href.indexOf('firebase') == -1? '' : 'https://ping-pong-rankings.firebaseio.com'
+  var DATA_URL = location.href.indexOf('firebase') == -1 ? '/matches.json' : 'https://ping-pong-rankings.firebaseio.com/.json'
 
-  $http.get(BASE_URL + '/data/matches.json').
-  then(function (response) {
+  $http.get(DATA_URL).then(function (response) {
+    console.log(response);
     if (response.status == 200) {
-      var matches = response.data;
-      var data = response.data;
-      data.forEach(function (item, i) {
+      var json = response.data;
+      var matches = json.data.matches;
+      matches.forEach(function (item, i) {
         item.date = new Date(item.date);
       });
-      data.sort(function (match1, match2) {
+      matches.sort(function (match1, match2) {
         return match1.date - match2.date;
       });
       var players = ['Jason', 'Steven', 'David', 'Roman', 'John', 'Tyler', 'Arvin', 'Doug'];
