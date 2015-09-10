@@ -53,7 +53,6 @@
   var DATA_URL = location.href.indexOf('firebase') == -1 ? '/matches.json' : 'https://ping-pong-rankings.firebaseio.com/.json'
 
   $http.get(DATA_URL).then(function (response) {
-    console.log(response);
     if (response.status == 200) {
       var json = response.data;
       var matches = json.data.matches;

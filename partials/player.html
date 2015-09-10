@@ -1,6 +1,6 @@
 <section>
   <div class="container">
-    <h1 class="text-center">({{ player.currentSeed + 1 }}) {{ player.name }}</h1>
+    <h1 class="text-center">{{ player.name }} - {{ player.ranking }}</h1>
     <div class="row">
       <div class="col-sm-4">
         <h3 class="text-center">History</h3>
@@ -10,7 +10,7 @@
               <td class="col-sm-1"><strong></strong></td>
               <td class="col-sm-5"><strong>Opponent</strong></td>
               <td class="col-sm-4"><strong>Record</strong></td>
-              <td class="col-sm-2"><strong>Current</strong></td>
+              <td class="col-sm-2"><strong>Streak</strong></td>
             </tr>
             <tr class="row match-data" ng-repeat="history in player.histories">
 
