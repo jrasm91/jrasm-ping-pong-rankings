@@ -50,12 +50,11 @@
   var game = new Game();
   $rootScope.game = game;
 
-  var DATA_URL = location.href.indexOf('firebase') == -1 ? '/matches.json' : 'https://ping-pong-rankings.firebaseio.com/.json'
+  // var DATA_URL = location.href.indexOf('firebase') == -1 ? '/matches.json' : 'https://ping-pong-rankings.firebaseio.com/.json'
 
-  $http.get(DATA_URL).then(function (response) {
+  $http.get('data/history.json').then(function (response) {
     if (response.status == 200) {
-      var json = response.data;
-      var matches = json.data.matches;
+      var matches = response.data;
       matches.forEach(function (item, i) {
         item.date = new Date(item.date);
       });
