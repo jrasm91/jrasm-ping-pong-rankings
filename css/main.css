@@ -4,7 +4,7 @@
 html, body {
   font-family: 'Montserrat', sans-serif;
   height:100%;
-  background-color: #10132B
+  background-color: white
 }
 
 .axis path,
@@ -24,14 +24,15 @@ html, body {
   stroke-width: 1.5px;
 }
 
-.whole-header {
+.whole-header, .whole-footer {
   min-height: 10%;
+  background-color: #10132B
 }
 
 .navbar-collapse {
   background-color: #10132B;
 }
- 
+
 .whole-content {
   padding: 25px;
   background-color: white;
@@ -41,7 +42,6 @@ html, body {
 .whole-footer {
   padding: 25px;
   color: #428bca;
-  min-height: 10%;
 }
 
 .flip-image {
@@ -85,6 +85,9 @@ html, body {
     background-color: white;
   }
   @media screen and (min-width: 768px) {
+    html, body {
+      background-color: #10132B
+    }
 
     .whole-content {
       height: 75%;
