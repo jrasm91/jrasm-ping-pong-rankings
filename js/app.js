@@ -16,11 +16,23 @@
     templateUrl: 'partials/home.html',
     activeTab: 'HOME'
   })
-  .when('/polls', {
+  .when('/rankings', {
     controller: 'PollsCtrl',
     controllerAs: 'pollsCtrl',
-    templateUrl: 'partials/polls.html',
-    activeTab: 'POLLS'
+    templateUrl: 'partials/rankings.html',
+    activeTab: 'RANKINGS'
+  })
+  .when('/players', {
+    controller: 'PollsCtrl',
+    controllerAs: 'pollsCtrl',
+    templateUrl: 'partials/players.html',
+    activeTab: 'PLAYERS'
+  })
+  .when('/matches', {
+    controller: 'PollsCtrl',
+    controllerAs: 'pollsCtrl',
+    templateUrl: 'partials/matches.html',
+    activeTab: 'MATCHES'
   })
   .when('/player/:name', {
     controller: 'PlayerCtrl',

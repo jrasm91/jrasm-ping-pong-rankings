@@ -1,42 +1,42 @@
 function findRankingChanges(ranking1, ranking2, upset) {
   var rankingDelta = Math.abs(ranking2 - ranking1);
-  var expected = 0;
-  var upset = 0;
+  var expectedPoints = 0;
+  var upsetPoints = 0;
   if (rankingDelta <= 12) {
-    expected = 8;
-    upset = 8;
+    expectedPoints = 8;
+    upsetPoints = 8;
   } else if (rankingDelta <= 37) {
-    expected = 7;
-    upset = 10;
+    expectedPoints = 7;
+    upsetPoints = 10;
   } else if (rankingDelta <= 62) {
-    expected = 6;
-    upset = 13;
+    expectedPoints = 6;
+    upsetPoints = 13;
   } else if (rankingDelta <= 87) {
-    expected = 5;
-    upset = 16;
+    expectedPoints = 5;
+    upsetPoints = 16;
   } else if (rankingDelta <= 112) {
-    expected = 4;
-    upset = 20;
+    expectedPoints = 4;
+    upsetPoints = 20;
   } else if (rankingDelta <= 137) {
-    expected = 3;
-    upset = 25;
+    expectedPoints = 3;
+    upsetPoints = 25;
   } else if (rankingDelta <= 162) {
-    expected = 2;
-    upset = 30;
+    expectedPoints = 2;
+    upsetPoints = 30;
   } else if (rankingDelta <= 187) {
-    expected = 2;
-    upset = 35;
+    expectedPoints = 2;
+    upsetPoints = 35;
   } else if (rankingDelta <= 212) {
-    expected = 1;
-    upset = 40;
+    expectedPoints = 1;
+    upsetPoints = 40;
   } else if (rankingDelta <= 237) {
-    expected = 1;
-    upset = 45;
+    expectedPoints = 1;
+    upsetPoints = 45;
   } else {
-    expected = 0;
-    upset = 50;
+    expectedPoints = 0;
+    upsetPoints = 50;
   }
-  return upset ? upset : expected;
+  return upset ? upsetPoints : expectedPoints;
 };
 
 /****** PLAYER ******/
@@ -85,7 +85,11 @@ function Match(config) {
   this.challenger = this.winner.name == config.challenger ? this.winner : this.loser;
   this.opponent = this.winner.name == config.opponent ? this.winner : this.loser;
 
-  this.upset = this.winner.ranking > this.loser.ranking;
+  this.upset = this.winner.ranking < this.loser.ranking;
+
+  var points = findRankingChanges(this.winner.ranking, this.loser.ranking, this.upset);
+  this.winner.pointsWon = points;
+  this.loser.pointsWon = -Math.floor(points / 2);
 
   this.scores = config.scores;
   this.scoresString = '';
@@ -95,10 +99,6 @@ function Match(config) {
       this.scoresString += ', '
     }
   }
-
-  var points = findRankingChanges(this.winner.ranking, this.loser.ranking, this.upset);
-  this.winner.pointsWon = points;
-  this.loser.pointsWon = -Math.floor(points / 2);
 }
 
 /****** GAME ******/
@@ -147,7 +147,7 @@ Game.prototype = {
 
     // update player points
     this.findPlayerByName(match.winner.name).addWin(match.winner.pointsWon);
-    this.findPlayerByName(match.loser.name).addLoss(-match.loser.pointsWon);
+    this.findPlayerByName(match.loser.name).addLoss(Math.abs(match.loser.pointsWon));
 
     this.updatePlayerOrder();
   },

@@ -1,0 +1,27 @@
+<section>
+  <div class="container">
+  <h1 class="text-center">All Players</h1>
+    <div class="row">
+      <div class="col-sm-12 col-md-12">
+        <h3 class="first text-center">Players as of 9/14/15</h3>
+        <table class="table table-striped">
+          <tbody>
+            <tr class="row">
+              <td class="col-sm-2"></td>
+              <td class="col-sm-3"><strong>Points</strong></td>
+              <td class="col-sm-4"><strong>Player</strong></td>
+              <td class="col-sm-3"><strong>Record</strong></td>
+            </tr>
+            <tr class="row" ng-repeat="player in game.players">
+              <td class="col-sm-1">{{ $index + 1 }}</td>
+              <td class="col-sm-3 ranking-text">{{ player.ranking }} <span class="glyphicon" ng-class="pollsCtrl.getSeedClasses(player.previousSeed, player.currentSeed)" ng-show="player.seedChange != 0"></span></td>
+              <td class="col-sm-4"><a ng-href="#/player/{{player.name}}">{{ player.name }}</a></td>
+              <td class="col-sm-3">{{ player.wins }} - {{ player.losses }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <p class="last"></p>
+</section>

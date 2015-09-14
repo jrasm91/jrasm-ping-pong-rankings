@@ -64,6 +64,10 @@ html, body {
     font-weight: 400;
   }
 
+  .recent-matches-table {
+    overflow: auto;
+  }
+
   .match-won, .match-lost {
     font-size: medium;
     color: green;
@@ -90,7 +94,7 @@ html, body {
     }
 
     .whole-content {
-      height: 75%;
+      min-height: 75%;
     }
 
     .container {
