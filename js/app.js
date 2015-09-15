@@ -54,7 +54,7 @@
  */
  app.controller('MainCtrl', function ($rootScope, $http, $scope, $route) {
   this.isActive = function (tab) {
-    $rootScope.activeTab = $route && $route.current && $route.current.activeTab ?$route.current.activeTab : 'HOME';
+    $rootScope.activeTab = $route && $route.current && $route.current.activeTab ? $route.current.activeTab : 'HOME';
     return tab == $rootScope.activeTab;
   };
 
@@ -92,8 +92,6 @@ app.controller('PlayerCtrl', function ($rootScope, $scope, $routeParams) {
   player.histories = game.getPlayerHistory(player.name);
   $scope.player = player;
   $scope.playerMatches = game.getMatchesByPlayer(player.name);
-
-
 });
 
 app.controller('PollsCtrl', function ($scope, $http, $rootScope) {

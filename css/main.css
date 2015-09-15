@@ -7,6 +7,11 @@ html, body {
   background-color: white
 }
 
+a:hover, a:focus {
+  color: #2a6496;
+  text-decoration: none;
+}
+
 .whole-header, .whole-footer {
   min-height: 10%;
   background-color: #10132B;
@@ -23,6 +28,12 @@ html, body {
   height: 2.5em;
   margin-left: -10px;
   margin-top: -10px;
+}
+
+.glyphicon-chevron-right {
+  /*font-size: 16px;*/
+  margin-left: -7px;
+  margin-right: -5px;
 }
 
 .whole-header ul a:hover{
@@ -56,18 +67,8 @@ html, body {
   margin-bottom: 0px;
 } 
 
-.navbar-header {
-  /*padding-top: 5px;*/
-  /*padding-bottom: 5px;*/
-  /*padding-right: 5px;*/
-}
-
 .navbar-header ul {
   padding-top: 5px;
-}
-
-.matches-container {
-  max-width: 700px;
 }
 
 .players-container {
@@ -89,63 +90,51 @@ html, body {
   filter: FlipH;
   -ms-filter: "FlipH";
 }
-/*.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
-   background-color: white;
+.recent-matches-table {
+  overflow: auto;
 }
 
-.table-striped > tbody > tr:nth-child(2n) > td, .table-striped > tbody > tr:nth-child(2n) > th {
-   background-color: white;
-   }*/
+.match-won, .match-lost {
+  font-size: medium;
+  color: green;
+}
 
+.match-won {
+  color: green;
+}
 
-  .recent-matches-table {
-    overflow: auto;
+.match-lost {
+  color: #a94442;
+}
+
+.icon-bar {
+  background-color: white;
+}
+
+@media screen and (max-width: 330px) {
+  /*.glyphicon-home {
+    display: none;
+  }*/
+  .playerhomeicon {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  html, body {
+    background-color: #10132B
   }
 
-  .match-won, .match-lost {
-    font-size: medium;
-    color: green;
+  .whole-header, .whole-footer {
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
 
-  .match-won {
-    color: green;
+  .container {
+    width: 992px;
   }
 
-  .match-lost {
-    color: #a94442;
+  .matches-container {
+    max-width: 700px;
   }
-
-  .icon-bar {
-    background-color: white;
-  }
-  @media screen and (min-width: 768px) {
-    html, body {
-      background-color: #10132B
-    }
-
-    .whole-header, .whole-footer {
-       padding-top: 20px;
-       padding-bottom: 20px;
-    }
-
-    .container {
-      width: 992px;
-    }
-
-    .node circle {
-      cursor: pointer;
-      fill: #fff;
-      stroke: steelblue;
-      stroke-width: 1.5px;
-    }
-
-    .node text {
-      font: 10px sans-serif;
-    }
-
-    path.link {
-      fill: none;
-      stroke: #ccc;
-      stroke-width: 1.5px;
-    }
-  }
+}
