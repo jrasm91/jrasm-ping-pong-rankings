@@ -23,18 +23,21 @@
           </ul>
           <a href="#/home" class="navbar-brand logo-font">
             <span class="hidden-xs">Ping Pong Rankings</span>
-            <span class="visible-xs"><span class="glyphicon glyphicon-home" ng-class="{ playerhomeicon: mainCtrl.isActive('PLAYER') }"></span> </span>
+            <span class="visible-xs">
+            <span class="glyphicon glyphicon-home" ng-class="{ playerhomeicon: mainCtrl.isActive('PLAYER') }"></span> 
+            <span class="glyphicon glyphicon-chevron-right first-chevron" ng-hide="mainCtrl.isActive('HOME')" ng-class="{ playerhomeicon: mainCtrl.isActive('PLAYER') }"></span>
+            </span>
+            
           </a>
           <div class="navbar-brand logo-font">
-          <span class="visible-xs">
-            <span class="glyphicon glyphicon-chevron-right first-chevron" ng-class="{ playerhomeicon: mainCtrl.isActive('PLAYER') }"></span>
-            <a ng-show="mainCtrl.isActive('PLAYER')" href="#/players">
-              <span> {{ activeTab }}</span>
-            </a>
-            <span ng-hide="mainCtrl.isActive('HOME') || mainCtrl.isActive('PLAYER')"> {{ activeTab }}</span>
-            <span ng-show="mainCtrl.isActive('PLAYER')" class="glyphicon glyphicon-chevron-right second-chevron"></span>
-            <span ng-show="mainCtrl.isActive('PLAYER')"> {{ playerName }}</span>
-          </span>
+            <span class="visible-xs">
+              <a ng-show="mainCtrl.isActive('PLAYER')" href="#/players">
+              <span>{{ activeTab }}</span>
+              </a>
+              <span ng-hide="mainCtrl.isActive('HOME') || mainCtrl.isActive('PLAYER')"> {{ activeTab }}</span>
+              <span ng-show="mainCtrl.isActive('PLAYER')" class="glyphicon glyphicon-chevron-right second-chevron"></span>
+              <span ng-show="mainCtrl.isActive('PLAYER')"> {{ playerName }}</span>
+            </span>
           </div>
           <a href="#/home" class="hidden-xs navbar-brand logo-font" ></a>
         </div>
