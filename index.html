@@ -15,8 +15,7 @@
   <div id="loading-div" style="color:white; text-align:center;margin-top:100px">
     <h3>Loading...</h3>
   </div>
-  <div id="ready-div" style="display:none">
-    <div class="whole-header">
+    <div class="whole-header ready-div" style="display:none">
       <div class="container">
         <nav role="navigation" class="header navbar">
           <div class="navbar-header">
@@ -55,10 +54,10 @@
         </nav>
       </div>
     </div>
-    <div class="whole-content">
+    <div class="whole-content ready-div" style="display:none">
       <div class="content" ng-view=""></div>
     </div>
-    <div class="whole-footer">
+    <div class="whole-footer ready-div" style="display:none">
       <div class="container">
         <div class="footer">
           <p class="first">Created by Jason Rasmussen</p>
@@ -98,7 +97,7 @@
   <script>
   $(document).ready(function(){
     $('#loading-div').css({ "display" : "none"});
-    $('#ready-div').css({ "display" : "block"});
+    $('.ready-div').css({ "display" : "block"});
   });
 
 
