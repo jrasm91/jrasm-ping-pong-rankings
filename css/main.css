@@ -4,8 +4,10 @@
 html, body {
   font-family: 'Montserrat', sans-serif;
   height:100%;
-  background-color: white
+  background-color: #10132B
 }
+
+body { overflow-y: scroll; }
 
 a:hover, a:focus {
   color: #2a6496;
