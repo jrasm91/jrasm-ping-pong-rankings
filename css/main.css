@@ -44,6 +44,7 @@ html, body {
 .whole-content {
   padding: 25px;
   background-color: white;
+  min-height: 75%;
   height: auto;
 }
 
@@ -99,10 +100,6 @@ html, body {
   @media screen and (min-width: 768px) {
     html, body {
       background-color: #10132B
-    }
-
-    .whole-content {
-      min-height: 75%;
     }
 
     .container {
