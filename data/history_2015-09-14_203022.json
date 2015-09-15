@@ -1,0 +1,99 @@
+[{
+  "challenger": "John",
+  "date": "8/28/15 13:00",
+  "opponent": "Tyler",
+  "scores": [
+    [11, 5],
+    [11, 6]
+  ]
+}, {
+  "challenger": "Jason",
+  "date": "8/28/15 14:00",
+  "opponent": "John",
+  "scores": [
+    [11, 4],
+    [11, 9]
+  ]
+}, {
+  "challenger": "Steven",
+  "date": "8/28/15 15:00",
+  "opponent": "John",
+  "scores": [
+    [7, 11],
+    [12, 14]
+  ]
+}, {
+  "challenger": "Steven",
+  "date": "8/31/15 17:00",
+  "opponent": "Tyler",
+  "scores": [
+    [11, 6],
+    [11, 6]
+  ]
+}, {
+  "challenger": "Tyler",
+  "date": "8/31/15 18:00",
+  "opponent": "David",
+  "scores": [
+    [11, -1],
+    [11, -1]
+  ]
+}, {
+  "challenger": "Steven",
+  "date": "8/31/15 18:01",
+  "opponent": "John",
+  "scores": [
+    [11, 9],
+    [12, 10]
+  ]
+}, {
+  "challenger": "Roman",
+  "date": "8/31/15 18:01",
+  "opponent": "Tyler",
+  "scores": [
+    [13, 11],
+    [8, 11],
+    [8, 11]
+  ]
+}, {
+  "challenger": "John",
+  "date": "9/4/15 18:01",
+  "opponent": "Jason",
+  "scores": [
+    [8, 11],
+    [14, 12],
+    [9, 11]
+  ]
+}, {
+  "challenger": "Doug",
+  "date": "9/9/2015 14:50",
+  "opponent": "Tyler",
+  "scores": [
+    [11, 7],
+    [11, 9]
+  ]
+}, {
+  "challenger": "Doug",
+  "date": "9/14/2015 12:00",
+  "opponent": "John",
+  "scores": [
+    [11, 7],
+    [11, 5]
+  ]
+}, {
+  "challenger": "Doug",
+  "date": "9/14/2015 13:00",
+  "opponent": "Steven",
+  "scores": [
+    [11, 4],
+    [17, 15]
+  ]
+}, {
+  "challenger": "Jason",
+  "date": "9/14/2015 13:01",
+  "opponent": "Steven",
+  "scores": [
+    [11, 4],
+    [11, 3]
+  ]
+}]
