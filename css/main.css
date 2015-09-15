@@ -7,26 +7,39 @@ html, body {
   background-color: white
 }
 
-.axis path,
-.axis line {
-  fill: none;
-  stroke: #000;
-  shape-rendering: crispEdges;
-}
-
-.x.axis path {
-  display: none;
-}
-
-.line {
-  fill: none;
-  stroke: steelblue;
-  stroke-width: 1.5px;
-}
-
 .whole-header, .whole-footer {
   min-height: 10%;
-  background-color: #10132B
+  background-color: #10132B;
+  color: #428bca;
+}
+
+.container {
+  padding-right: 0px ;
+  padding-left: 0px ;
+}
+
+.whole-footer {
+  padding-top: 15px;
+  padding-left: 15px;
+}
+
+.navbar {
+  margin-bottom: 0px !important;
+}
+
+.navbar-header ul, .navbar-collapse ul {
+  padding-top: 5px;
+  margin-bottom: 0px;
+} 
+
+.navbar-header {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 15px;
+}
+
+.navbar-header ul {
+  padding-top: 5px;
 }
 
 .matches-container {
@@ -37,20 +50,11 @@ html, body {
   max-width: 300px;
 }
 
-.navbar-collapse {
-  background-color: #10132B;
-}
-
 .whole-content {
   padding: 25px;
   background-color: white;
   min-height: 75%;
   height: auto;
-}
-
-.whole-footer {
-  padding: 25px;
-  color: #428bca;
 }
 
 .flip-image {
@@ -69,9 +73,6 @@ html, body {
    background-color: white;
    }*/
 
-   .logo-font {
-    font-weight: 400;
-  }
 
   .recent-matches-table {
     overflow: auto;
@@ -90,16 +91,17 @@ html, body {
     color: #a94442;
   }
 
-  .header {
-    padding-top: 25px;
-  }
-
   .icon-bar {
     background-color: white;
   }
   @media screen and (min-width: 768px) {
     html, body {
       background-color: #10132B
+    }
+
+    .whole-header, .whole-footer {
+       padding-top: 20px;
+       padding-bottom: 20px;
     }
 
     .container {
