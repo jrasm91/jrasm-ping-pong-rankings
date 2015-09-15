@@ -29,6 +29,14 @@ html, body {
   background-color: #10132B
 }
 
+.matches-container {
+  max-width: 700px;
+}
+
+.players-container {
+  max-width: 300px;
+}
+
 .navbar-collapse {
   background-color: #10132B;
 }
