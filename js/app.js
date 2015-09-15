@@ -53,10 +53,9 @@
  * Controller of the ppPollsApp
  */
  app.controller('MainCtrl', function ($rootScope, $http, $scope, $route) {
-  this.activeTab = 1;
-
   this.isActive = function (tab) {
-    return ($route && $route.current && $route.current.activeTab && $route.current.activeTab == tab);
+    $rootScope.activeTab = $route && $route.current && $route.current.activeTab ?$route.current.activeTab : 'HOME';
+    return tab == $rootScope.activeTab;
   };
 
   var game = new Game();
@@ -87,6 +86,7 @@
 });
 
 app.controller('PlayerCtrl', function ($rootScope, $scope, $routeParams) {
+  $rootScope.playerName = $routeParams.name;
   var game = $rootScope.game;
   var player = game.findPlayerByName($routeParams.name);
   player.histories = game.getPlayerHistory(player.name);

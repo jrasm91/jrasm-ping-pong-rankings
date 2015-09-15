@@ -10,7 +10,26 @@ html, body {
 .whole-header, .whole-footer {
   min-height: 10%;
   background-color: #10132B;
-  color: #428bca;
+  color: #75BEFD;
+  /*color: #428bca;*/
+}
+
+.whole-header a {
+  color: #75BEFD;
+  border: 1px solid #10132B
+}
+
+.logo-font img {
+  height: 2.5em;
+  margin-left: -10px;
+  margin-top: -10px;
+}
+
+.whole-header ul a:hover{
+  border: 1px solid #428bca !important;
+  color: white !important;
+  background-color: #5CA5E4 !important;
+  /*color: white !important;*/
 }
 
 .container {
@@ -27,15 +46,20 @@ html, body {
   margin-bottom: 0px !important;
 }
 
+.logo-font {
+  padding-left: 5px;
+  padding-right: 0px;
+}
+
 .navbar-header ul, .navbar-collapse ul {
   padding-top: 5px;
   margin-bottom: 0px;
 } 
 
 .navbar-header {
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-right: 15px;
+  /*padding-top: 5px;*/
+  /*padding-bottom: 5px;*/
+  /*padding-right: 5px;*/
 }
 
 .navbar-header ul {
@@ -51,7 +75,7 @@ html, body {
 }
 
 .whole-content {
-  padding: 25px;
+  padding: 10px;
   background-color: white;
   min-height: 75%;
   height: auto;
