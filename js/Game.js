@@ -40,8 +40,10 @@ function findRankingChanges(ranking1, ranking2, upset) {
 };
 
 /****** PLAYER ******/
-function Player(name) {
-  this.name = name;
+function Player(fullname) {
+  this.fullname = fullname;
+  this.displayName = this.fullname.split(' ')[0].charAt(0) + '. ' + this.fullname.split(' ')[1]
+  this.name = this.displayName;
   this.wins = 0;
   this.losses = 0;
   this.ranking = 1000;
@@ -61,7 +63,7 @@ Player.prototype = {
 /****** MATCH ******/
 function Match(config) {
   this.date = config.date;
-  this.dateString = config.date.toLocaleString().split(',')[0];
+  this.dateString = (this.date.getMonth() + 1) + '/' + this.date.getDate() + '/' + this.date.getFullYear();
 
   var challengerSets = 0;
   var opponentSets = 0;
@@ -133,35 +135,51 @@ Game.prototype = {
     this.sortPlayers();
     this.setCurrentSeed();
   },
-  addPlayer: function (name) {
-    var player = new Player(name);
+  addPlayer: function (fullname) {
+    var player = new Player(fullname);
     this.players.push(player);
     return player;
   },
   addMatch: function (params) {
     // find/add players from match
-    params.challengerRanking = this.upsertPlayer(params.challenger).ranking;
-    params.opponentRanking = this.upsertPlayer(params.opponent).ranking;
+    var challenger = this.upsertPlayer(params.challenger);
+    params.challenger = challenger.displayName;
+    params.challengerRanking = challenger.ranking;
+    
+    var opponent = this.upsertPlayer(params.opponent);
+    params.opponent = opponent.displayName;
+    params.opponentRanking = opponent.ranking;
+    
     var match = new Match(params);
     this.matches.push(match);
 
     // update player points
-    this.findPlayerByName(match.winner.name).addWin(match.winner.pointsWon);
-    this.findPlayerByName(match.loser.name).addLoss(Math.abs(match.loser.pointsWon));
+    this.findPlayerByDisplayName(match.winner.name).addWin(match.winner.pointsWon);
+    this.findPlayerByDisplayName(match.loser.name).addLoss(Math.abs(match.loser.pointsWon));
 
     this.updatePlayerOrder();
   },
-  upsertPlayer: function (name) {
-    var player = this.findPlayerByName(name);
+  upsertPlayer: function (fullname) {
+    var player = this.findPlayerByFullname(fullname);
     if (!player) {
-      player = this.addPlayer(name);
+      player = this.addPlayer(fullname);
     }
     return player;
   },
-  findPlayerByName: function (name) {
+  findPlayerByFullname: function (fullname) {
     var player = null;
     for (var i = 0; i < this.players.length; i++) {
-      if (name.toUpperCase() == this.players[i].name.toUpperCase()) {
+      if (fullname.toUpperCase() == this.players[i].fullname.toUpperCase()) {
+        player = this.players[i];
+        break;
+      }
+    }
+    return player;
+  },
+  findPlayerByDisplayName: function (displayName) {
+    var player = null;
+    for (var i = 0; i < this.players.length; i++) {
+      if (displayName.toUpperCase() == this.players[i].displayName.toUpperCase()) {
         player = this.players[i];
         break;
       }

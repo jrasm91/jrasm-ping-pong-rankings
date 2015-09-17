@@ -1,104 +1,104 @@
 [{
-  "challenger": "John",
+  "challenger": "John Fredriksen",
   "date": "8/28/15 13:00",
-  "opponent": "Tyler",
+  "opponent": "Tyler Tune",
   "scores": [
     [11, 5],
     [11, 6]
   ]
 },  {
-  "challenger": "Jason",
+  "challenger": "Jason Rasmussen",
   "date": "8/28/15 14:00",
-  "opponent": "John",
+  "opponent": "John Fredriksen",
   "scores": [
     [11, 4],
     [11, 9]
   ]
 }, {
-  "challenger": "Steven",
+  "challenger": "Steven Dutcher",
   "date": "8/28/15 15:00",
-  "opponent": "John",
+  "opponent": "John Fredriksen",
   "scores": [
     [7, 11],
     [12, 14]
   ]
 }, {
-  "challenger": "Steven",
+  "challenger": "Steven Dutcher",
   "date": "8/31/15 17:00",
-  "opponent": "Tyler",
+  "opponent": "Tyler Tune",
   "scores": [
     [11, 6],
     [11, 6]
   ]
 }, {
-  "challenger": "Tyler",
+  "challenger": "Tyler Tune",
   "date": "8/31/15 18:00",
-  "opponent": "David",
+  "opponent": "David Muñoz",
   "scores": [
     [11, -1],
     [11, -1]
   ]
 }, {
-  "challenger": "Steven",
+  "challenger": "Steven Dutcher",
   "date": "8/31/15 18:01",
-  "opponent": "John",
+  "opponent": "John Fredriksen",
   "scores": [
     [11, 9],
     [12, 10]
   ]
 }, {
-  "challenger": "Roman",
+  "challenger": "Roman Romero",
   "date": "8/31/15 18:01",
-  "opponent": "Tyler",
+  "opponent": "Tyler Tune",
   "scores": [
     [13, 11],
     [8, 11],
     [8, 11]
   ]
 }, {
-  "challenger": "John",
+  "challenger": "John Fredriksen",
   "date": "9/4/15 18:01",
-  "opponent": "Jason",
+  "opponent": "Jason Rasmussen",
   "scores": [
     [8, 11],
     [14, 12],
     [9, 11]
   ]
 }, {
-  "challenger": "Doug",
+  "challenger": "Douglas Vanover",
   "date": "9/9/2015 14:50",
-  "opponent": "Tyler",
+  "opponent": "Tyler Tune",
   "scores": [
     [11, 7],
     [11, 9]
   ]
 }, {
-  "challenger": "Doug",
+  "challenger": "Douglas Vanover",
   "date": "9/14/2015 12:00",
-  "opponent": "John",
+  "opponent": "John Fredriksen",
   "scores": [
     [11, 7],
     [11, 5]
   ]
 }, {
-  "challenger": "Doug",
+  "challenger": "Douglas Vanover",
   "date": "9/14/2015 13:00",
-  "opponent": "Steven",
+  "opponent": "Steven Dutcher",
   "scores": [
     [11, 4],
     [17, 15]
   ]
 }, {
-  "challenger": "Jason",
+  "challenger": "Jason Rasmussen",
   "date": "9/14/2015 13:01",
-  "opponent": "Steven",
+  "opponent": "Steven Dutcher",
   "scores": [
     [11, 4],
     [11, 3]
   ]
 }, {
-	"challenger" : "Jason",
-	"opponent" : "Doug",
+	"challenger" : "Jason Rasmussen",
+	"opponent" : "Douglas Vanover",
 	"scores" : [[17,15], [11,7]],
 	"date" : "2015/09/15 11:14:33"
 }]

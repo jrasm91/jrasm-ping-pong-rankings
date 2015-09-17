@@ -72,10 +72,6 @@
       matches.sort(function (match1, match2) {
         return match1.date - match2.date;
       });
-      var players = ['Jason', 'Steven', 'David', 'Roman', 'John', 'Tyler', 'Arvin', 'Doug'];
-      for (var i = 0; i < players.length; i++) {
-        game.addPlayer(players[i]);
-      }
       for (var i = 0; i < matches.length; i++) {
         game.addMatch(matches[i]);
       }
@@ -88,7 +84,7 @@
 app.controller('PlayerCtrl', function ($rootScope, $scope, $routeParams) {
   $rootScope.playerName = $routeParams.name;
   var game = $rootScope.game;
-  var player = game.findPlayerByName($routeParams.name);
+  var player = game.findPlayerByFullname($routeParams.name);
   player.histories = game.getPlayerHistory(player.name);
   $scope.player = player;
   $scope.playerMatches = game.getMatchesByPlayer(player.name);
