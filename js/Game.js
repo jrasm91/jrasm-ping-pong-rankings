@@ -89,7 +89,7 @@ function Match(config) {
 
   var points = findRankingChanges(this.winner.ranking, this.loser.ranking, this.upset);
   this.winner.pointsWon = points;
-  this.loser.pointsWon = -Math.floor(points / 2);
+  this.loser.pointsWon = -points;
 
   this.scores = config.scores;
   this.scoresString = '';
