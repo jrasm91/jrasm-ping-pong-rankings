@@ -45,7 +45,7 @@
               <td class="col-md-1 hidden-xs"><strong>Sets</strong></td>
               <td class="col-md-3 col-xs-2"><strong>Scores</strong></td>
             </tr>
-            <tr class="row match-data" ng-repeat="match in playerMatches | orderBy:'date':true | limitTo:10" >
+            <tr class="row match-data" ng-repeat="match in player.playerMatches | orderBy:'date':true | limitTo:10" >
               <!-- <td class="col-md-1 hidden-xs">{{ $index + 1 }}</td> -->
               <td class="col-md-1 col-xs-3">{{ match.dateString }}</td>
               <td class="col-md-3 col-xs-7">

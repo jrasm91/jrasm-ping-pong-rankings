@@ -106,4 +106,19 @@
   "opponent" : "Douglas Vanover",
   "scores" : [[8,11], [11,8], [14,12]],
   "date" : "2015/9/17 11:14:33"
+}, {
+  "challenger" : "Steven Dutcher",
+  "opponent" : "Arvin Suson",
+  "scores" : [[11, 5], [11, 6]],
+  "date" : "2015/9/17 15:14:33"
+}, {
+  "challenger" : "Steven Dutcher",
+  "opponent" : "Roman Romero",
+  "scores" : [[11, 6], [11, 7]],
+  "date" : "2015/9/17 16:14:33"
+}, {
+  "challenger" : "Arvin Suson",
+  "opponent" : "Roman Romero",
+  "scores" : [[7, 11], [7, 11]],
+  "date" : "2015/9/17 16:14:33"
 }]

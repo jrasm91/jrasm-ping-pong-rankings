@@ -8,41 +8,41 @@
  *
  * Main module of the application.
  */
- var app = angular.module('ppPollsApp', ['ngRoute']);
+var app = angular.module('ppPollsApp', ['ngRoute']);
 
- app.config(function ($routeProvider) {
+app.config(function ($routeProvider) {
   $routeProvider
-  .when('/home', {
-    templateUrl: 'partials/home.html',
-    activeTab: 'HOME'
-  })
-  .when('/rankings', {
-    controller: 'PollsCtrl',
-    controllerAs: 'pollsCtrl',
-    templateUrl: 'partials/rankings.html',
-    activeTab: 'RANKINGS'
-  })
-  .when('/players', {
-    controller: 'PollsCtrl',
-    controllerAs: 'pollsCtrl',
-    templateUrl: 'partials/players.html',
-    activeTab: 'PLAYERS'
-  })
-  .when('/matches', {
-    controller: 'PollsCtrl',
-    controllerAs: 'pollsCtrl',
-    templateUrl: 'partials/matches.html',
-    activeTab: 'MATCHES'
-  })
-  .when('/player/:name', {
-    controller: 'PlayerCtrl',
-    controllerAs: 'playerCtrl',
-    templateUrl: 'partials/player.html',
-    activeTab: 'PLAYER'
-  })
-  .otherwise({
-    redirectTo: '/home'
-  });
+    .when('/home', {
+      templateUrl: 'partials/home.html',
+      activeTab: 'HOME'
+    })
+    .when('/rankings', {
+      controller: 'PollsCtrl',
+      controllerAs: 'pollsCtrl',
+      templateUrl: 'partials/rankings.html',
+      activeTab: 'RANKINGS'
+    })
+    .when('/players', {
+      controller: 'PollsCtrl',
+      controllerAs: 'pollsCtrl',
+      templateUrl: 'partials/players.html',
+      activeTab: 'PLAYERS'
+    })
+    .when('/matches', {
+      controller: 'PollsCtrl',
+      controllerAs: 'pollsCtrl',
+      templateUrl: 'partials/matches.html',
+      activeTab: 'MATCHES'
+    })
+    .when('/player/:name', {
+      controller: 'PlayerCtrl',
+      controllerAs: 'playerCtrl',
+      templateUrl: 'partials/player.html',
+      activeTab: 'PLAYER'
+    })
+    .otherwise({
+      redirectTo: '/home'
+    });
 });
 
 /**
@@ -52,7 +52,7 @@
  * # MainCtrl
  * Controller of the ppPollsApp
  */
- app.controller('MainCtrl', function ($rootScope, $http, $scope, $route) {
+app.controller('MainCtrl', function ($rootScope, $http, $scope, $route) {
   this.isActive = function (tab) {
     $rootScope.activeTab = $route && $route.current && $route.current.activeTab ? $route.current.activeTab : 'HOME';
     return tab == $rootScope.activeTab;
@@ -81,13 +81,17 @@
   });
 });
 
-app.controller('PlayerCtrl', function ($rootScope, $scope, $routeParams) {
+app.controller('PlayerCtrl', function ($rootScope, $scope, $location, $routeParams) {
   $rootScope.playerName = $routeParams.name;
   var game = $rootScope.game;
-  var player = game.findPlayerByFullname($routeParams.name);
+  var player = game.findPlayerByFullname($routeParams.name)
+  if(!player){
+    $location.path('/home');
+  }
   player.histories = game.getPlayerHistory(player.name);
+  player.playerMatches = game.getMatchesByPlayer(player.name);
+  
   $scope.player = player;
-  $scope.playerMatches = game.getMatchesByPlayer(player.name);
 });
 
 app.controller('PollsCtrl', function ($scope, $http, $rootScope) {
