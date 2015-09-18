@@ -97,8 +97,13 @@
     [11, 3]
   ]
 }, {
-	"challenger" : "Jason Rasmussen",
-	"opponent" : "Douglas Vanover",
-	"scores" : [[17,15], [11,7]],
-	"date" : "2015/09/15 11:14:33"
+  "challenger" : "Jason Rasmussen",
+  "opponent" : "Douglas Vanover",
+  "scores" : [[17,15], [11,7]],
+  "date" : "2015/09/15 11:14:33"
+}, {
+  "challenger" : "Jason Rasmussen",
+  "opponent" : "Douglas Vanover",
+  "scores" : [[8,11], [11,8], [14,12]],
+  "date" : "2015/9/17 11:14:33"
 }]

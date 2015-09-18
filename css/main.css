@@ -30,6 +30,11 @@ a:hover, a:focus {
   background-color: #5CA5E4 !important;
 }
 
+.logo-font {
+  padding-left: 7px;
+  padding-right: 7px;
+}
+
 .whole-content {
   padding: 10px;
   background-color: white;

@@ -42,7 +42,9 @@ function findRankingChanges(ranking1, ranking2, upset) {
 /****** PLAYER ******/
 function Player(fullname) {
   this.fullname = fullname;
-  this.displayName = fullname.split('_')[0].charAt(0) + '. ' + fullname.split('_')[1]
+  this.firstname = fullname.split('_')[0];
+  this.lastname = fullname.split('_')[1];
+  this.displayName = this.firstname.charAt(0) + '. ' + this.lastname;
   this.name = this.displayName;
   this.wins = 0;
   this.losses = 0;
@@ -161,7 +163,6 @@ Game.prototype = {
   },
   upsertPlayer: function (fullname) {
     fullname = fullname.split(' ').join('_');
-    console.log(fullname)
     var player = this.findPlayerByFullname(fullname);
     if (!player) {
       player = this.addPlayer(fullname);

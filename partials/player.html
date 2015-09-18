@@ -1,6 +1,6 @@
 <section>
   <div class="container">
-    <h1 class="text-center">{{ player.name }} - {{ player.ranking }}</h1>
+    <h1 class="text-center">{{ player.firstname }} {{ player.lastname }} - {{ player.ranking }}</h1>
     <div class="row">
       <div class="col-sm-4">
         <h3 class="text-center">History</h3>
@@ -38,28 +38,31 @@
          <table class="recent-matches-table table table-striped" >
           <tbody>
             <tr class="row">
-              <td class="col-sm-1 hidden-xs"></td>
-              <td class="col-sm-1 hidden-xs"><strong>Date</strong></td>
-              <td class="col-sm-3"><strong>Challenger</strong></td>
-              <td class="col-sm-1 hidden-xs" ><strong></strong></td>
-              <td class="col-sm-3"><strong>Opponent</strong></td>
-              <td class="col-sm-1 hidden-xs"><strong>Sets</strong></td>
-              <td class="col-sm-2"><strong>Scores</strong></td>
+              <td class="col-md-1 col-xs-3"><strong>Date</strong></td>
+              <td class="col-md-3 col-xs-7"><strong>Challenger<span class="visible-xs">Opponent</span></strong></td>
+              <td class="col-md-1 hidden-xs" ><strong></strong></td>
+              <td class="col-md-3 hidden-xs"><strong>Opponent</strong></td>
+              <td class="col-md-1 hidden-xs"><strong>Sets</strong></td>
+              <td class="col-md-3 col-xs-2"><strong>Scores</strong></td>
             </tr>
-            <tr class="row match-data" ng-repeat="match in playerMatches | orderBy:'date':true">
-              <td class="col-sm-1 hidden-xs">{{ $index + 1 }}</td>
-              <td class="col-sm-1 hidden-xs">{{ match.dateString }}</td>
-              <td class="col-sm-3">
+            <tr class="row match-data" ng-repeat="match in playerMatches | orderBy:'date':true | limitTo:10" >
+              <!-- <td class="col-md-1 hidden-xs">{{ $index + 1 }}</td> -->
+              <td class="col-md-1 col-xs-3">{{ match.dateString }}</td>
+              <td class="col-md-3 col-xs-7">
                 <span>{{ match.challenger.name }} </span>
                 <span ng-class="{ 'match-won': match.winner == match.challenger, 'match-lost': match.loser == match.challenger }"><span class="match-won" ng-show="match.winner == match.challenger">+</span>{{ match.challenger.pointsWon }} </span>
+                <span class="visible-xs">
+                  <span>{{ match.opponent.name }} </span>
+                  <span ng-class="{ 'match-won': match.winner == match.opponent, 'match-lost': match.loser == match.opponent }"><span class="match-won" ng-show="match.winner == match.opponent">+</span>{{ match.opponent.pointsWon }} </span>
+                </span>
               </td> 
-              <td class="col-sm-1 hidden-xs"> vs </td>
-              <td class="col-sm-3">
+              <td class="col-md-1 hidden-xs"> vs </td>
+              <td class="col-md-3 hidden-xs">
                 <span>{{ match.opponent.name }} </span>
                 <span ng-class="{ 'match-won': match.winner == match.opponent, 'match-lost': match.loser == match.opponent }"><span class="match-won" ng-show="match.winner == match.opponent">+</span>{{ match.opponent.pointsWon }} </span>
               </td>
-              <td class="col-sm-1 hidden-xs"> {{ match.challenger.setsWon }} - {{ match.opponent.setsWon }} </td>
-              <td class="col-sm-2">{{ match.scoresString }}</td>
+              <td class="col-md-1 hidden-xs"> {{ match.challenger.setsWon }} - {{ match.opponent.setsWon }} </td>
+              <td class="col-md-3 col-xs-2">{{ match.scoresString }}</td>
             </tr>
           </tbody>
         </table>
