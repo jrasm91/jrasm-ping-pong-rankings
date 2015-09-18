@@ -86,8 +86,8 @@ app.controller('PlayerCtrl', function ($rootScope, $scope, $location, $routePara
   var game = $rootScope.game;
   var player = game.findPlayerByFullname($routeParams.name)
   console.log(player);
-  if(player == null || player == undefined || !player.name){
-    $location.path('/home');
+  if(!player || !player.name){
+    return $location.path('/home');
   }
   player.histories = game.getPlayerHistory(player.name);
   player.playerMatches = game.getMatchesByPlayer(player.name);
