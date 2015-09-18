@@ -85,7 +85,6 @@ app.controller('PlayerCtrl', function ($rootScope, $scope, $location, $routePara
   $rootScope.playerName = $routeParams.name;
   var game = $rootScope.game;
   var player = game.findPlayerByFullname($routeParams.name)
-  console.log(player);
   if(!player || !player.name){
     return $location.path('/home');
   }
