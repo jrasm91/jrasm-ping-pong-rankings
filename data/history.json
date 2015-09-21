@@ -121,4 +121,9 @@
   "opponent" : "Roman Romero",
   "scores" : [[7, 11], [7, 11]],
   "date" : "2015/9/17 16:14:33"
+}, {
+  "challenger" : "Douglas Vanover",
+  "opponent" : "Steven Dutcher",
+  "scores" : [[11, 9], [11, 3]],
+  "date" : "2015/9/19 16:14:33"
 }]
