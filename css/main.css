@@ -17,6 +17,7 @@ a:hover, a:focus {
   color: #2a6496;
   text-decoration: none;
 }
+
 .whole-header a {
   color: #75BEFD;
   border: 1px solid #10132B
@@ -93,7 +94,7 @@ a:hover, a:focus {
 }
 
 .match-won, .match-lost {
-  font-size: medium;
+  font-weight: bold;
   color: green;
 }
 
